@@ -49,6 +49,7 @@ This project is a web application clone of PharmEasy, an online pharmacy platfor
 ###### Bootstrap and Chakra UI for UI components
 ###### npm packages for additional functionalities
 
-### npm installations:
+### Deployment Link:
+https://pharmeasy-clone-2024.netlify.app/
 
 
