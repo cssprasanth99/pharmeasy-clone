@@ -1,0 +1,275 @@
+
+:root{
+    --text-color:#30363C;
+    --main-color:rgb(7,161,161);
+    --shodow:rgba(60,64,67,0.3) 0px 1px 2px 0px,rgba(60,64,67,0.15) 0px 2px 6px 2px;
+    --shadow-border:  rgba(0, 0, 0, 0.02) 0px 1px 3px 0px , rgba(27,31,35,0.15) 0px 0px 0px 1px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Inter,sans-serif;
+    color: var(--text-color);
+}
+container{
+    width: 100%;
+    padding: 40px 5%;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+/* navbar */
+
+.nav1{
+    box-shadow: lightgrey 0 0 5px;
+    width:100%;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+}
+
+
+.nav1>img{
+    margin: 20px 35px;
+    height: 40px;
+}
+#logo{
+    margin-top: 20px;
+}
+
+.nav1>img+div{
+    width: 1px;
+    background-color: grey;
+    height: 30px;
+    margin: auto 0;
+}
+
+#pick-address{
+    margin: auto 30px;
+}
+#pick-address>div{
+    display: flex;
+}
+#pick-address>div p{
+    font-size: 13px;
+}
+#pick-address >h4{
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 15px;
+    display: inline;
+}
+#pick-address >i{
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.download-app{
+    cursor: pointer;
+    display: flex;
+    margin: auto 20px auto auto;
+    padding: 10px 15px;
+    align-items: center;
+    border-radius: 8px;
+    background-color: rgb(226,247,255);
+}
+
+.download-app:hover{
+    background-color: rgb(200,240,255);
+}
+.download-app > p {
+    font-weight: 400;
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.nav1 > ul{
+    margin: auto 20px;
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+
+}
+
+.nav1 >ul li,
+.nav1 > ul li a{
+    margin: 10px 15px;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav1 ul li p{
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.menubar{
+    box-shadow: lightgrey 0 0 5px;
+    width:100%;
+    padding: 2px;
+    box-sizing: border-box;
+}
+
+.menu>ul{
+    margin: auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    list-style: none;
+    gap: 10px;
+}
+
+.menu>ul>li,
+.menu>ul>li>a{
+    margin: 2px 5px;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.navLink{
+    cursor: pointer;
+    text-decoration: 'none'; 
+    color: 'inherit';
+    color: var(--text-color);
+    margin: 2px;
+}
+
+/* search bar */
+
+.search-layout{
+    margin-top: 70px;
+}
+
+.search-layout >div{
+    width: 70%;
+    margin: 30px auto 0;
+}
+
+.search-header{
+    display: flex;
+    align-items: center;
+}
+
+.search-header >h2{
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.search-header > h2 + i{
+    margin-left: auto;
+    margin-right: 8px;
+    margin-top: -15px;
+}
+.search-header>p{
+    margin-right: 10px;
+}
+
+.search-header >div{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.search-header>div>h3,
+.search-header>div>i{
+    color:var(--main-color);
+    margin-right: 5px;
+    font-weight: 16px;
+    font-size: 16px;
+}
+
+.search-bar{
+    display: flex;
+    margin: 20px 0;
+    width: 100%;
+    border: 1px lightgrey solid;
+    border-radius: 40px;
+    padding: 4px;
+    box-sizing: border-box;
+    box-shadow: lightgrey 0 0 4px;
+    align-items: center;
+}
+
+.search-bar > i{
+    margin-left: 30px;
+}
+
+.search-bar > input[type='text']{
+    margin: auto 20px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    width: 100%;
+
+}
+
+.search-bar>input[type="submit"]{
+    margin-left: auto;
+    border: none;
+    background-color: var(--main-color);
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 35px;
+    cursor: pointer;
+}
+
+.search-bar input::placeholder{
+    font-size: 16px;
+    text-transform: capitalize;
+}
+@media (max-width: 992px) {
+    .download-app,
+    .pincode{
+        display: none;
+    }
+    .nav1>img{
+        margin: 7px 35px;
+        width: 50%;
+        text-align: center;
+    }
+  
+    .nav1 {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+  
+  }
+  
+  /* Media query for small screens (e.g., smartphones) */
+  @media (max-width: 768px) {
+    .nav1 {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+  
+    .download-app,
+    .pincode,.offers {
+      display: none; /* Hide the pincode and download app section on small screens */
+    }
+  
+    ul {
+      display: flex;
+      align-items: stretch;
+    }
+  
+    li {
+      margin: 10px 0;
+    }
+  
+    .search-layout {
+      width: 100%;
+    }
+  }
