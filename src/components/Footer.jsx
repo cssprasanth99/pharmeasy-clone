@@ -8,24 +8,29 @@ import {
   Image,
   Button,
   Text,
+  useBreakpointValue,
+  Center,
 } from "@chakra-ui/react";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
 
 export const Footer = () => {
+  const isLargeScreen = useBreakpointValue({ base: false, lg: true });
   return (
     <footer>
       <hr />
       <Stack
-        direction="horizontal"
-        gap="130px"
-        marginLeft="17%"
-        paddingTop="30px"
+        direction={isLargeScreen ? "horizontal" : "column"}
+        gap={isLargeScreen ? "130px" : "20px"}
+        marginLeft={isLargeScreen ? "17%" : "0"}
+        padding="30px"
         marginBottom="20px"
       >
-        <Image
-          width="210px"
-          src="https://assets.pharmeasy.in/web-assets/_next/icons/footerMobile.jpg"
-        />
+        <Center>
+          <Image
+            width={isLargeScreen ? "210px" : "40%"}
+            src="https://assets.pharmeasy.in/web-assets/_next/icons/footerMobile.jpg"
+          />
+        </Center>
         <Stack gap="30px" marginTop="10px">
           <Text fontSize="19px" textAlign="left" color="gray.600">
             Download the App for Free
