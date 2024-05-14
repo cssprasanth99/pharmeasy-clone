@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { DayDealsData } from "../data/DealsofDayData";
 
 export const UpperBody = () => {
-  const endTime = new Date("May 14, 2024 00:00:00").getTime();
+  const endTime = new Date("May 16, 2024 00:00:00").getTime();
 
   const [currentTime, setCurrentTime] = useState(new Date().getTime());
 

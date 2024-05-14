@@ -1,9 +1,6 @@
 import React from "react";
 import "../styles/footer.css";
 import {
-  Box,
-  Grid,
-  SimpleGrid,
   Stack,
   Image,
   Button,

@@ -32,7 +32,7 @@ import {
   Radio,
   RadioGroup,
 } from "@chakra-ui/react";
-import { FaTag, FaCheckCircle } from "react-icons/fa"; // Import icons
+import { FaTag } from "react-icons/fa"; // Import icons
 
 import { cartContext } from "../context/CartContext";
 
@@ -66,6 +66,8 @@ const Payment = () => {
     }
   });
 
+  console.log("itemQuantities", itemQuantities);
+
   // Filter unique items based on model and product
   const uniqueItems = Object.values(
     cartItems.reduce((acc, item) => {
@@ -80,20 +82,7 @@ const Payment = () => {
     }, {})
   );
 
-  // Function to simulate order placement
-  const placeOrder = (paymentType) => {
-    // Simulate order placement logic
-    // Display success toast and reset cartItems after a delay
-    toast({
-      title: `Order placed successfully (${paymentType})`,
-      status: "success",
-      duration: 5000,
-      isClosable: true,
-    });
-    setTimeout(() => {
-      setCartItems([]);
-    }, 5000);
-  };
+  console.log("uniqueItems", uniqueItems);
 
   function handleChange(e) {
     setOrder({ ...order, [e.target.name]: e.target.value });
@@ -137,14 +126,12 @@ const Payment = () => {
             {cartItems.map((item, index) => (
               <Tr key={index}>
                 <Td>{index + 1}</Td>
-                <Td>{item.model || item.title}</Td>
-                <Td>{item.category}</Td>
-                <Td>₹ {item.offerPrice}</Td>
-                <Td> {itemQuantities[`${item.model}-${item.product}`]}</Td>
+                <Td>{uniqueItems.model || item.title}</Td>
+                <Td>{uniqueItems.category}</Td>
+                <Td>₹ {uniqueItems.offerPrice}</Td>
+                <Td>{uniqueItems.quantity}</Td>
                 <Td>
-                  ₹{" "}
-                  {`${item.offerPrice}` *
-                    `${itemQuantities[`${item.model}-${item.product}`]}`}
+                  ₹ {`${uniqueItems.offerPrice}` * `${uniqueItems.quantity}`}
                 </Td>
               </Tr>
             ))}
@@ -333,7 +320,7 @@ const Payment = () => {
               <Text>Your order has been placed successfully!</Text>
             </ModalBody>
             <ModalFooter>
-              <Link to="/">
+              <Link rel="preload" href="/" as="font">
                 <Button colorScheme="blue" mr={3}>
                   Home
                 </Button>
