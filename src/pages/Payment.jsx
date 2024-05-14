@@ -180,7 +180,7 @@ const Payment = () => {
           <Box>
             <Text>
               <b>Delivery Charges:</b>{" "}
-              {subTotal >= 500 ? (
+              {grandTotal >= 500 ? (
                 <span style={{ color: "green" }}>Free Delivery</span>
               ) : (
                 <span>₹ 50 (Free delivery with cart value above ₹500) </span>
@@ -189,8 +189,8 @@ const Payment = () => {
           </Box>
           <Box>
             <Text>
-              <b>Total:</b> ₹ {subTotal}{" "}
-              {subTotal >= 500 ? "" : "+ ₹ 50 (Delivery Charges)"}
+              <b>Total:</b> ₹ {grandTotal}{" "}
+              {grandTotal >= 500 ? "" : "+ ₹ 50 (Delivery Charges)"}
             </Text>
           </Box>
         </Stack>

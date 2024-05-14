@@ -223,6 +223,7 @@ export const UpperBody = () => {
         <div className="product-cards">
           {DayDealsData.map((data, index) => (
             <div key={index}>
+
               <img src={data.img} alt={data.heading} />
               <div>
                 <h4 className="name">{data.heading}</h4>
