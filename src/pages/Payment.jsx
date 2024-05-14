@@ -67,18 +67,18 @@ const Payment = () => {
   });
 
   // Filter unique items based on model and product
-  // const uniqueItems = Object.values(
-  //   cartItems.reduce((acc, item) => {
-  //     const key = `${item.model}-${item.product}`;
-  //     if (!acc[key]) {
-  //       acc[key] = item;
-  //       acc[key].quantity = 1;
-  //     } else {
-  //       acc[key].quantity++;
-  //     }
-  //     return acc;
-  //   }, {})
-  // );
+  const uniqueItems = Object.values(
+    cartItems.reduce((acc, item) => {
+      const key = `${item.model}-${item.product}`;
+      if (!acc[key]) {
+        acc[key] = item;
+        acc[key].quantity = 1;
+      } else {
+        acc[key].quantity++;
+      }
+      return acc;
+    }, {})
+  );
 
   // Function to simulate order placement
   const placeOrder = (paymentType) => {
