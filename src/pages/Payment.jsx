@@ -32,7 +32,7 @@ import {
   Radio,
   RadioGroup,
 } from "@chakra-ui/react";
-import { FaTag } from "react-icons/fa"; // Import icons
+import { FaTag, FaCheckCircle } from "react-icons/fa"; // Import icons
 
 import { cartContext } from "../context/CartContext";
 
@@ -66,23 +66,34 @@ const Payment = () => {
     }
   });
 
-  console.log("itemQuantities", itemQuantities);
-
   // Filter unique items based on model and product
-  const uniqueItems = Object.values(
-    cartItems.reduce((acc, item) => {
-      const key = `${item.model}-${item.product}`;
-      if (!acc[key]) {
-        acc[key] = item;
-        acc[key].quantity = 1;
-      } else {
-        acc[key].quantity++;
-      }
-      return acc;
-    }, {})
-  );
+  // const uniqueItems = Object.values(
+  //   cartItems.reduce((acc, item) => {
+  //     const key = `${item.model}-${item.product}`;
+  //     if (!acc[key]) {
+  //       acc[key] = item;
+  //       acc[key].quantity = 1;
+  //     } else {
+  //       acc[key].quantity++;
+  //     }
+  //     return acc;
+  //   }, {})
+  // );
 
-  console.log("uniqueItems", uniqueItems);
+  // Function to simulate order placement
+  const placeOrder = (paymentType) => {
+    // Simulate order placement logic
+    // Display success toast and reset cartItems after a delay
+    toast({
+      title: `Order placed successfully (${paymentType})`,
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+    });
+    setTimeout(() => {
+      setCartItems([]);
+    }, 5000);
+  };
 
   function handleChange(e) {
     setOrder({ ...order, [e.target.name]: e.target.value });
@@ -126,12 +137,14 @@ const Payment = () => {
             {cartItems.map((item, index) => (
               <Tr key={index}>
                 <Td>{index + 1}</Td>
-                <Td>{uniqueItems.model || item.title}</Td>
-                <Td>{uniqueItems.category}</Td>
-                <Td>₹ {uniqueItems.offerPrice}</Td>
-                <Td>{uniqueItems.quantity}</Td>
+                <Td>{item.model || item.title}</Td>
+                <Td>{item.category}</Td>
+                <Td>₹ {item.offerPrice}</Td>
+                <Td> {itemQuantities[`${item.model}-${item.product}`]}</Td>
                 <Td>
-                  ₹ {`${uniqueItems.offerPrice}` * `${uniqueItems.quantity}`}
+                  ₹{" "}
+                  {`${item.offerPrice}` *
+                    `${itemQuantities[`${item.model}-${item.product}`]}`}
                 </Td>
               </Tr>
             ))}
@@ -320,7 +333,7 @@ const Payment = () => {
               <Text>Your order has been placed successfully!</Text>
             </ModalBody>
             <ModalFooter>
-              <Link rel="preload" href="/" as="font">
+              <Link to="/">
                 <Button colorScheme="blue" mr={3}>
                   Home
                 </Button>
