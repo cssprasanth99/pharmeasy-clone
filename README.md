@@ -52,4 +52,7 @@ This project is a web application clone of PharmEasy, an online pharmacy platfor
 ### Deployment Link:
 https://pharmeasy-clone-2024.netlify.app/
 
+### Disclaimer:
+###### This is not original website. This is clone purely made for eductional purpose not for commercial use. For original website, Pl visit below link https://pharmeasy.in/
+
 
