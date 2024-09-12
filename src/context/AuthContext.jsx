@@ -13,11 +13,10 @@ export const AuthProvider = ({ children }) => {
 
   const login = (formData) => {
     setUserData([...userData, formData]);
-    setForm({ username: "", email: "", password: "" }); // Clear form after login
+    setForm({ username: "", email: "", password: "" }); 
   };
 
   const logout = () => {
-    // Implement logout logic if needed
     setUserData([]);
   };
 

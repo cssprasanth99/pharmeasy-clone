@@ -42,13 +42,10 @@ export const Navbar = () => {
 
   console.log(pincode);
   const handleLogout = () => {
-    // Perform logout action
     logout();
 
-    // Clear cart items
     setCartItems([]);
 
-    // Show a toast message indicating successful logout
     toast({
       title: "Logged out successfully.",
       status: "success",
